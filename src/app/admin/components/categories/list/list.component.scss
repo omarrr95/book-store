@@ -1,0 +1,14 @@
+.table {
+    td {
+    vertical-align: middle;
+     > img  {
+         max-width: 80px;
+         border-radius: 10px;
+     }
+     a {
+         display: inline-block;
+         margin: 0 10px;
+         cursor: pointer;
+     }
+    }
+ }

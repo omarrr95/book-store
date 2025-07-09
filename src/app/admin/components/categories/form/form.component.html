@@ -1,0 +1,24 @@
+<div class="toolbar-section box-style">
+    <h5 class="m-0">{{categoryId? 'Edit' : 'Add'}} Category</h5>
+    <a class="btn btn-primary" [routerLink]="['admin/categories/list']">Back</a>
+  </div>
+  
+  <div class="box-style">
+    <form [formGroup]="addCategoryForm">
+      <div class="row">
+        <div class="mb-3 col-md-3 col-sm-6">
+          <label class="form-label">title</label>
+          <input type="text" class="form-control" formControlName="title">
+        </div>
+          <div class="mb-3 col-md-3 col-sm-6">
+            <label class="form-label">status</label>
+            <input type="text" class="form-control" formControlName="status">
+          </div>
+        <div class="mb-3 col-md-12 text-end">
+          <button type="button" (click)="categoryId ? onEditCategory() : onAddCategory()" class="btn btn-primary btn-width">
+            {{ categoryId ? 'Edit' : 'Add' }}
+          </button>        </div>
+      </div>
+    </form>
+  </div>
+  

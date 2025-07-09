@@ -1,0 +1,16 @@
+<div class="auth-layout">
+    <div class="row">
+        <div class="col-md-6 p-0">
+        <div class="login-img">
+            <img src="assets/images/login.jpg" />
+        </div>
+        </div>
+        <div class="col-md-6 form-container">
+            <div class="change-language">
+                <a [routerLink]="['/']"><img src="assets/images/logo1.png" /></a>
+                <a href="javascript:;" (click)="toggleLanguage()"><img src="assets/images/language.png" /> {{ langAr ? 'En' : 'Ar' }}</a>
+            </div>
+            <router-outlet />
+        </div>
+    </div>
+</div>

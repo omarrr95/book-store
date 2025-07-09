@@ -1,0 +1,58 @@
+ <div class="login-container">
+  <div class="login-box">
+    <div class="header-form">
+      <h3><span>{{ 'Book Store System' | translate }}</span></h3>
+      <h4 class="mb-3">{{ 'Sign In' | translate }}</h4>
+      <p class="mb-3">{{ 'Enter your credentials to access your account' | translate }}</p>
+    </div>
+    <form [formGroup]="loginForm">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">{{'Email' | translate}}</label>
+        <input type="text" class="form-control" formControlName="email">
+      </div>
+      <div class="alert alert-danger py-2"
+        *ngIf="loginForm.get('email')?.errors?.['required'] && loginForm.get('email')?.touched">
+        <span>{{'email is required' | translate}}</span>
+      </div>
+      <div class="mb-0">
+        <label for="exampleInputPassword1" class="form-label">{{'Password' | translate}}</label>
+        <div class="pass-container">
+          <input [type]="passtype" class="form-control"
+            formControlName="password">
+          <a (click)="showpass()">
+            <i class="fa"
+              [ngClass]="passtype === 'password' ? 'fa-eye' : 'fa-eye-slash'"></i>
+          </a>
+        </div>
+      </div>
+      <div class="mb-3">
+       <a class="link-register mt-2"
+        [routerLink]="['/auth/forget-password']"
+        [innerHTML]="'forget password' | translate"></a>
+        </div>
+      <div class="alert alert-danger py-2"
+        *ngIf="loginForm.get('password')?.errors?.['required'] && loginForm.get('password')?.touched">
+        <span>{{'password is required' | translate}}</span>
+      </div>
+      <ng-container *ngIf="loading; then thenTemplate; else elseTemplate">
+      </ng-container>
+      <ng-template #thenTemplate>
+        <button type="button" class="btn btn-primary">
+          <span *ngIf="loading">
+            <i class="fa fa-spinner fa-spin me-2"></i> {{ 'Please wait...' | translate }}
+          </span>
+        </button>
+      </ng-template>
+      <ng-template #elseTemplate>
+        <button [disabled]="loginForm.invalid" (click)="onLogin(loginForm)"
+          type="button" class="btn btn-primary">
+          <span *ngIf="!loading">{{ 'Login' | translate }}</span>
+        </button>
+      </ng-template>
+
+      <a class="w-100 text-center link-register"
+        [routerLink]="['/auth/register']"
+        [innerHTML]="'if didt have account register click here' | translate"></a>
+    </form>
+  </div>
+</div>

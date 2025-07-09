@@ -1,0 +1,151 @@
+   <!-- ==========Header-Section========== -->
+   <header class="header-section">
+    <div class="container">
+        <div class="header-wrapper">
+            <div class="d-flex align-item-center">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="assets/images/logo/logo.png" alt="logo">
+                    </a>
+                </div>
+                <ul class="menu">
+                  
+                    <li>
+                        <a [routerLink]="['/']">{{'Home' | translate}}</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/books']">{{'books' | translate}}</a>
+                    </li>
+              
+                </ul>
+            </div>
+         
+            <ul class="menu">
+               
+                <li>
+                    <a class="language-icon" href="javascript:;" (click)="toggleLanguage()"><img src="assets/images/language.png"> {{ langAr ? 'En' : 'Ar' }}</a>
+                </li>
+                <ng-container *ngIf="isLoggedIn; then thenTemplate; else elseTemplate">
+                </ng-container>
+                <ng-template #thenTemplate>
+                                        <li>
+                        <a>{{userName}}</a>
+                        <ul class="submenu">
+                                <li *ngIf="userRoleAdmin">
+                        <a [routerLink]="['/admin/books']">{{'Dashboard' | translate}}</a>
+                            </li>
+                            <li>
+                                <a [routerLink]="['auth/change-password']">{{'changepassword' | translate}}</a>
+                            </li>
+                            <li>
+                               <a href="javacript:;" (click)="logout()">{{'Logout' | translate}}</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ng-template>
+                <ng-template #elseTemplate>
+                    <li class="header-button pr-0">
+                        <a [routerLink]="['/auth/login']">{{'Login' | translate}}</a>
+                      </li>
+                </ng-template>
+                
+            </ul>
+            <div class="header-bar d-lg-none">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- ==========Header-Section========== -->
+<router-outlet />
+    <!-- ==========Overlay========== -->
+    <div class="overlay"></div>
+    <a href="#0" class="scrollToTop">
+        <i class="fas fa-angle-up"></i>
+    </a>
+    <!-- ==========Overlay========== -->
+
+    
+    <!-- ==========Newslater-Section========== -->
+    <footer class="footer-section">
+        <div class="newslater-section padding-bottom">
+            <div class="container">
+                <div class="newslater-container bg_img" data-background="assets/images/newslater/newslater-bg01.jpg">
+                    <div class="newslater-wrapper">
+                        <h5 class="cate">subscribe to Boleto </h5>
+                        <h3 class="title">to get exclusive benifits</h3>
+                        <form class="newslater-form">
+                            <input type="text" placeholder="Your Email Address">
+                            <button type="submit">subscribe</button>
+                        </form>
+                        <p>We respect your privacy, so we never share your info</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer-top">
+                <div class="logo">
+                    <a href="index-1.html">
+                        <img src="assets/images/footer/footer-logo.png" alt="footer">
+                    </a>
+                </div>
+                <ul class="social-icons">
+                    <li>
+                        <a href="#0">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#0" class="active">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#0">
+                            <i class="fab fa-pinterest-p"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#0">
+                            <i class="fab fa-google"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#0">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-area">
+                    <div class="left">
+                        <p>Copyright © 2020.All Rights Reserved By <a href="#0">Boleto </a></p>
+                    </div>
+                    <ul class="links">
+                        <li>
+                            <a href="#0">About</a>
+                        </li>
+                        <li>
+                            <a href="#0">Terms Of Use</a>
+                        </li>
+                        <li>
+                            <a href="#0">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="#0">FAQ</a>
+                        </li>
+                        <li>
+                            <a href="#0">Feedback</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ==========Newslater-Section========== -->
+
+

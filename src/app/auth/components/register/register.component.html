@@ -1,0 +1,65 @@
+<div class="login-container">
+    <div class="login-box">
+   <div class="header-form">
+<h3><span>{{ 'Book Store System' | translate }}</span></h3>
+    <h4 class="mb-3">{{'Sign Up' | translate}}</h4>
+      <p class="mb-3">{{ 'Enter your credentials to access your account' | translate }}</p>
+   </div>
+   <form [formGroup]="registerForm">
+    <input type="hidden" class="form-control" value="Customer" formControlName="role">
+        <div class="row">
+        <div class="col-md-6 mb-3">
+      <label class="form-label">{{'first name' | translate}}</label>
+      <input type="text" class="form-control" formControlName="first_name">
+      <div class="alert alert-danger py-2" *ngIf="registerForm.get('first_name')?.errors?.['required'] && registerForm.get('first_name')?.touched">
+        <span>{{'first name is required' | translate}}</span>
+    </div>
+    </div>
+
+        <div class="col-md-6 mb-3">
+        <label class="form-label">{{'last name' | translate}}</label>
+        <input type="text" class="form-control" formControlName="last_name">
+        <div class="alert alert-danger py-2" *ngIf="registerForm.get('last_name')?.errors?.['required'] && registerForm.get('last_name')?.touched">
+            <span>{{'last name is required' | translate}}</span>
+        </div>
+      </div>
+      </div>
+      
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">{{'Password' | translate}}</label>
+      <div class="pass-container">
+        <input [type]="passtype"  class="form-control"  formControlName="password">
+        <a (click)="showpass()">
+            <i  class="fa" [ngClass]="passtype === 'password' ? 'fa-eye' : 'fa-eye-slash'"></i>
+        </a>
+      </div>
+         <div class="alert alert-danger py-2" *ngIf="registerForm.get('password')?.errors?.['required'] && registerForm.get('password')?.touched">
+        <span>{{'password is required' | translate}}</span>
+    </div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">{{'Email' | translate}}</label>
+        <input type="text" class="form-control" formControlName="email">
+        <div class="alert alert-danger py-2" *ngIf="registerForm.get('email')?.errors?.['required'] && registerForm.get('email')?.touched">
+            <span>{{'email is required' | translate}}</span>
+        </div>
+      </div>
+                             <ng-container *ngIf="loading; then thenTemplate; else elseTemplate">
+                </ng-container>
+                <ng-template #thenTemplate>
+                             <button type="button" class="btn btn-primary">
+                <span *ngIf="loading">
+    <i class="fa fa-spinner fa-spin me-2"></i> {{ 'Please wait...' | translate }}
+  </span>
+            </button>
+                </ng-template>
+                <ng-template #elseTemplate>
+                                          <button  (click)="onRegister(registerForm)" type="button" class="btn btn-primary">
+                <span *ngIf="!loading">{{ 'Register' | translate }}</span>
+            </button>
+                </ng-template>
+    <a class="w-100 text-center link-register" [routerLink]="['/auth/login']" [innerHTML]="'if you have account login' | translate"></a>
+
+  </form>
+</div>
+</div>

@@ -1,0 +1,56 @@
+
+<div class="toolbar-section box-style">
+  <h5 class="m-0">List Of categorys</h5>
+    <a class="btn btn-primary" [routerLink]="['/admin/categories/add']">add new category</a>
+</div>
+<div class="box-style">
+<div class="col-md-12 mt-4 text-center" *ngIf="isLoadingcategory">
+  <i class="fas fa-spinner fa-spin fa-2xl"></i>
+  <p class="mt-3 text-center">Loading...</p>
+</div>
+<div class="table-responsive">
+<table class="table table-hover">
+  <thead *ngIf="!isLoadingcategory">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">status</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let category of paginatedCategorys">
+      <td scope="row">{{ category._id }}</td>
+      <td>{{ category.title }}</td>
+      <td>{{ category.status }}</td>
+      <td>
+        <a [routerLink]="['/admin/categories/edit', category._id]"><img src="assets/images/icons/pen.svg" /></a>
+        <a (click)="deletecategory(category._id)"><img src="assets/images/icons/trash.svg" /></a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Pagination Controls -->
+<nav *ngIf="totalPages > 1" class="mt-3">
+  <ul class="pagination justify-content-center">
+    <li class="page-item" [class.disabled]="currentPage === 1">
+      <a class="page-link" (click)="goToPage(currentPage - 1)">Previous</a>
+    </li>
+
+    <li
+      class="page-item"
+      *ngFor="let page of [].constructor(totalPages); let i = index"
+      [class.active]="currentPage === i + 1"
+    >
+      <a class="page-link" (click)="goToPage(i + 1)">{{ i + 1 }}</a>
+    </li>
+
+    <li class="page-item" [class.disabled]="currentPage === totalPages">
+      <a class="page-link" (click)="goToPage(currentPage + 1)">Next</a>
+    </li>
+  </ul>
+</nav>
+
+</div>
+</div>

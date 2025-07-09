@@ -1,0 +1,66 @@
+<div class="dashboard-content">
+  <div class="row m-0">
+    <div class="col-md-2 p-0">
+      <div class="side-bar p-3 w-100">
+         <a class="language-icon" href="javascript:;" (click)="toggleLanguage()"><img src="assets/images/language.png"> {{ langAr ? 'En' : 'Ar' }}</a>
+    <h3><span>UMS</span></h3>
+   
+    <div class="img-container">
+        <img src="./../../../../assets/images/img.png" />
+    </div>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <a [routerLink]="['/home']" routerLinkActive="active" class="nav-link" aria-current="page">
+            <span><img src="assets/images/Vector.svg" /></span>
+          Home
+        </a>
+      </li>
+      <li class="show-in-mobile">
+        <a [routerLink]="['/admin/categories']" routerLinkActive="active" class="nav-link link-dark">
+            <span><img src="assets/images/bookmark.svg" /></span>
+          Categories
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/admin/books']" routerLinkActive="active" class="nav-link link-dark">
+            <span><img src="assets/images/graduation-cap.svg" /></span>
+          Books
+        </a>
+      </li>
+      <!-- <li class="show-in-mobile">
+        <a [routerLink]="['/brands/list']" routerLinkActive="active" class="nav-link link-dark">
+            <span><img src="assets/images/usd-square.svg" /></span>
+            Orders
+        </a>
+      </li>
+            <li class="show-in-mobile">
+        <a [routerLink]="['/brands/list']" routerLinkActive="active" class="nav-link link-dark">
+            <span><img src="assets/images/usd-square.svg" /></span>
+            Payments
+        </a>
+      </li> -->
+    </ul>
+    <ul class="nav">
+        <li class="m-auto">
+            <a href="javacript:;" (click)="logout()" class="nav-link link-dark">
+              {{'Logout' | translate}} <img src="assets/images/sign-out-alt.svg" />
+            </a>
+          </li>
+    </ul>
+  </div>
+  
+    </div>
+    <div class="col-md-10 p-0">
+    <div class="p-3">
+        <router-outlet />
+    </div>
+    </div>
+</div>
+<div *ngIf="isLoading" class="preloader">
+    <div class="loader-ripple">
+        <div></div>
+        <div></div>
+    </div>
+</div>
+
+</div>

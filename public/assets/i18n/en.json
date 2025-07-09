@@ -1,0 +1,37 @@
+{
+    "Sign In": "Sign In",
+    "Book Store System": "Book Store System",
+    "Enter your credentials to access your account": "Enter your credentials to access your account",
+    "if didt have account register click here": "if did't have account register <span>click here</span>",
+    "if you have account login": "if you have account login <span>click here</span>",
+    "if you want to login": "if you want to login <span>click here</span>",
+    "forget password": "if you forget password <span>click here</span>",
+    "Login": "Login",
+    "Register": "Register",
+    "Sign Up": "Sign Up",
+    "Email": "Email",
+    "email is required" : "email is required",
+    "Password": "Password",
+    "password is required": "password is required",
+    "Please wait...": "Please wait...",
+    "first name" : "first name",
+    "last name" : "last name",
+    "first name is required" : "first name is required",
+    "last name is required" : "last name is required",
+    "login sucesfully" : "login sucesfully",
+    "Home": "Home",
+    "books": "books",
+    "Logout": "Logout",
+    "changepassword": "change password",
+    "currentpassword": "current password",
+     "Old Password New Password does not match" : "New Password & Confirm Password does not match",
+     "New Password": "New Password",
+     "Confirm Password": "Confirm New Password",
+     "updatepassword": "update password",
+     "resetpassword": "reset password",
+     "otp": "otp",
+     "Dashboard": "Dashboard"
+    
+    
+    
+}

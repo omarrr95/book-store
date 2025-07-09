@@ -1,0 +1,41 @@
+
+<div class="toolbar-section box-style">
+  <h5 class="m-0">List Of books</h5>
+    <a class="btn btn-primary" [routerLink]="['/admin/books/add']">add new book</a>
+</div>
+<div class="box-style">
+<div class="col-md-12 mt-4 text-center" *ngIf="isLoadingbook">
+  <i class="fas fa-spinner fa-spin fa-2xl"></i>
+  <p class="mt-3 text-center">Loading...</p>
+</div>
+<div class="table-responsive">
+<table class="table table-hover">
+    <thead *ngIf="!isLoadingbook">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Img</th>
+        <th scope="col">description</th>
+        <th scope="col">auther</th>
+        <th scope="col">price</th>
+        <th scope="col">category</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of listbooks">
+        <td>{{book.name}}</td>
+          <td><img [src]="book.image" /></td>
+        <td>{{book.description}}</td>
+        <td>{{book.author}}</td>
+        <td>{{book.price}}</td>
+        <td>{{book.category}}</td>
+        <td>
+            <a [routerLink]="['/admin/books/edit',book._id]"><img src="assets/images/icons/pen.svg"/></a>
+            <a (click)="deletebook(book._id)"><img src="assets/images/icons/trash.svg"/></a>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+</div>

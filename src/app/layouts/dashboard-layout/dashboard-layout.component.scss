@@ -1,0 +1,136 @@
+/*====================
+4. Preloader
+======================*/
+.dashboard-content {
+  background-color: #fff;
+}
+.language-icon{
+    background-color: #feaf00;
+    margin: -16px;
+    width: calc(100% + 30px);
+    margin-bottom: 10px;
+    margin-top: -14px;
+    color: #000;
+    font-weight: 900;
+    position: relative;
+    top: -8px;
+    padding: 9px;
+    img {
+      width: 30px;
+    }
+}
+.preloader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .loader-ripple {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  
+  .loader-ripple div {
+    position: absolute;
+    border: 4px solid #FEAF00;
+    opacity: 1;
+    border-radius: 50%;
+    animation: loader-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  }
+  
+  .loader-ripple div:nth-child(2) {
+    animation-delay: -0.5s;
+  }
+  
+  @keyframes loader-ripple {
+    0% {
+      top: 36px;
+      left: 36px;
+      width: 0;
+      height: 0;
+      opacity: 1;
+    }
+  
+    100% {
+      top: 0px;
+      left: 0px;
+      width: 72px;
+      height: 72px;
+      opacity: 0;
+    }
+  }
+.side-bar {
+    background-color: #F2EAE1;
+    height: 100vh;
+    .img-container {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        text-align: center;
+        margin: auto;
+        margin-bottom: 20px;
+        overflow: hidden;
+        img {
+            
+        }
+    }
+ h3 {
+    span {
+        border-left: 6px solid #FEAF00;
+    padding-left: 8px;
+    font-size: 22px;
+    color: #000;
+    }
+    margin-bottom: 30px;
+ }
+
+ .nav-pills {
+    margin-bottom:  130px !important;
+    .nav-link {
+   
+        color: #000;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        span {
+            display: inline-block;
+            width: 28px;
+            text-align: center;
+            img {
+                max-width: 22px;
+            }
+        }
+        &.active  {
+            background-color: #FEAF00;
+        }
+    }
+ }
+}
+
+@media only screen and (max-width: 768px) {
+    .side-bar {
+        height: auto;
+       h3,.img-container {
+display: none;
+        }
+        .nav-pills {
+            margin-bottom: 0 !important;
+        }
+    }
+    .nav li {
+        display: none;
+        &.show-in-mobile {
+            display: block;
+        }
+    }
+    
+}
